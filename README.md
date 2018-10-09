@@ -1,12 +1,12 @@
 # passport-auth0
 
-[![Build Status](https://travis-ci.org/auth0/passport-auth0.svg?branch=master)](https://travis-ci.org/auth0/passport-auth0)
+The BuildingConnected fork of the Auth0 authentication strategy for Passport.js.
 
-This is the auth0 authentication strategy for Passport.js.
+Originally forked 10/9/2018 for our initial Single Sign On implementation, in order to be able to pass the `login_hint` parameter when authenticating SSO users.
 
 ## Installation
 
-	npm install passport-auth0
+	npm install @buildingconnected/passport-auth0
 
 ## Configuration
 

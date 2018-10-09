@@ -1,14 +1,14 @@
 {
-  "name": "passport-auth0",
-  "version": "1.0.0",
-  "description": "Auth0 platform authentication strategy for Passport.js",
+  "name": "@buildingconnected/passport-auth0",
+  "version": "1.1.0",
+  "description": "BC fork of Auth0 platform authentication strategy for Passport.js",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/auth0/passport-auth0"
+    "url": "git@github.com:BuildingConnected/passport-auth0.git"
   },
   "author": {
     "name": "José F. Romaniello",
