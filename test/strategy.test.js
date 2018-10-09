@@ -5,7 +5,7 @@ var should = require('should');
 describe('auth0 strategy', function () {
   before(function () {
     this.strategy = new Auth10Strategy({
-       domain:       'jj.auth0.com', 
+       domain:       'jj.auth0.com',
        clientID:     'testid',
        clientSecret: 'testsecret',
        callbackURL:  '/callback'
@@ -18,12 +18,12 @@ describe('auth0 strategy', function () {
     this.strategy.options
       .authorizationURL.should.eql('https://jj.auth0.com/authorize');
   });
-  
+
   it('tokenURL should have the domain', function () {
     this.strategy.options
       .tokenURL.should.eql('https://jj.auth0.com/oauth/token');
   });
-  
+
   it('userInfoURL should have the domain', function () {
     this.strategy.options
       .userInfoURL.should.eql('https://jj.auth0.com/userinfo');
@@ -75,11 +75,22 @@ describe('auth0 strategy', function () {
       Object.keys(extraParams).length.should.eql(0);
     });
 
+    // changes cribbed from https://github.com/auth0/passport-auth0/pull/57/files
+    it('should map the login_hint field', function () {
+      var extraParams = this.strategy.authorizationParams({login_hint: 'test.user@auth0.com'});
+      extraParams.login_hint.should.eql('test.user@auth0.com');
+    });
+
+     it('should not map the login_hint field if its not a string', function () {
+      var extraParams = this.strategy.authorizationParams({login_hint: 42});
+      should.not.exist(extraParams.login_hint);
+    });
+
   });
 
-  describe('authenticate', function () { 
+  describe('authenticate', function () {
     it('when there is an error querystring propagate', function (done) {
-      
+
       this.strategy.fail = function (challenge, status) {
         challenge.should.eql('domain_mismatch');
         done();
@@ -91,7 +102,7 @@ describe('auth0 strategy', function () {
         }
       });
     });
-  }); 
+  });
 });
 
 describe('auth0 strategy with state parameter disabled', function () {
