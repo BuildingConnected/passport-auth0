@@ -1,6 +1,6 @@
 {
   "name": "@buildingconnected/passport-auth0",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "BC fork of Auth0 platform authentication strategy for Passport.js",
   "main": "lib/index.js",
   "scripts": {
